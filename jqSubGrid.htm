@@ -1,0 +1,136 @@
+<div id="jqSubGrid" style="height: 99%; width: 99%; overflow: hidden;">
+	<div id="jqSubGridDialog" title="jqSubGrid">
+		<table align="center" width="99%">
+			<tr align="center">
+				<td align="center">
+					<div>
+						<table id="grid">
+							<tr>
+								<td/>
+							</tr>
+						</table>
+						<div id="gridPager"></div>
+					</div></td>
+			</tr>
+		</table>
+		<div style="float:right;margin-left:10px;margin-right:10px">
+			<a href="javascript:viewSource('jqSubGridSource');">View Source</a>
+		</div>
+	</div>
+	<div id="jqSubGridSource" style="display:none;">
+	<p class="syntaxhighlighter">
+	function createGrid() {<br>
+	&emsp;var myGrid = jQuery("#grid");<br>
+	&emsp;myGrid.jqGrid({<br>
+		&emsp;&emsp;url : 'data/jqGrid.json',<br>
+		&emsp;&emsp;datatype : 'json',<br>
+		&emsp;&emsp;jsonReader : {<br>
+			&emsp;&emsp;&emsp;root : "rows",<br>
+			&emsp;&emsp;&emsp;page : "currpage",<br>
+			&emsp;&emsp;&emsp;total : "totalpages",<br>
+			&emsp;&emsp;&emsp;records : "totalrecords",<br>
+			&emsp;&emsp;&emsp;cell : "",<br>
+			&emsp;&emsp;&emsp;id : "0"<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;mtype : 'GET',<br>
+		&emsp;&emsp;colNames : [ 'ID','Moname', 'Description', 'Name', 'Type', 'IPaddress / Netmask', 'QOS Name', 'Oper / Admin Status' ],<br>
+		&emsp;&emsp;colModel : [{name : 'id', index : 'id', width : 10, align : 'center', hidden : true, search : true},<br>
+		&emsp;&emsp;&emsp;{name : 'getObjectID', index : 'getObjectID', width : 160, align : 'center', hidden : true, search : true},<br>
+        &emsp;&emsp;&emsp;{name : 'getDescription', index : 'getDescription', align : 'center' },<br>
+		&emsp;&emsp;&emsp;{name : 'Name', index : 'Name', align : 'center'},<br>
+		&emsp;&emsp;&emsp;{name : 'Type', index : 'Type', align : 'center'},<br>
+		&emsp;&emsp;&emsp;{name : 'IpAddress', index : 'IpAddress', align : 'center'},<br>
+		&emsp;&emsp;&emsp;{name : 'PolicyName', index : 'PolicyName', align : 'center'},<br>
+		&emsp;&emsp;&emsp;{name : 'Oper/Admin', index : 'Oper/Admin', align : 'center'}],<br>
+		&emsp;&emsp;pager : '#gridPager',<br>
+		&emsp;&emsp;rowNum : 20,<br>
+		&emsp;&emsp;rowList : [ 20, 30, 50 ],<br>
+		&emsp;&emsp;sortname : 'name',<br>
+		&emsp;&emsp;sortorder : 'asc',<br>
+		&emsp;&emsp;viewrecords : true,<br>
+		&emsp;&emsp;gridview : true,<br>
+		&emsp;&emsp;hidegrid : false,<br>
+		&emsp;&emsp;caption : 'Employee Details',<br>
+		&emsp;&emsp;&emsp;autowidth : true,<br>
+		&emsp;&emsp;shrinkToFit : true,<br>
+		&emsp;&emsp;height : '100%',<br>
+		&emsp;&emsp;pginput : false,<br>
+		&emsp;&emsp;subGrid : true,<br>
+		&emsp;&emsp;subGridRowExpanded: function(subgrid_id, row_id) {<br>
+		&emsp;&emsp;&emsp;var subgrid_table_id;<br>
+		&emsp;&emsp;&emsp;subgrid_table_id = subgrid_id+"_t";<br>
+	    &emsp;&emsp;&emsp;jQuery("#"+subgrid_id).html("&lt;table id='"+subgrid_table_id+"' class='scroll'&gt;&lt;/table&gt;&lt;div id='ctpPager'&gt;");<br>
+		&emsp;&emsp;&emsp;jQuery("#"+subgrid_table_id).jqGrid({<br>
+		&emsp;&emsp;&emsp;&emsp;url:"data/subInterfaces.json",<br>
+		&emsp;&emsp;&emsp;&emsp;datatype: "json",<br>
+		&emsp;&emsp;&emsp;&emsp;jsonReader : {<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;root : "rows",<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;page : "currpage",<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;total : "totalpages",<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;records : "totalrecords",<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;cell : "",<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;id : "0",<br>
+		&emsp;&emsp;&emsp;&emsp;},<br>
+		&emsp;&emsp;&emsp;&emsp;colNames: ['Object ID','Description','Name','Type','IpAddress','PolicyName','Oper/Admin Status'],<br>
+		&emsp;&emsp;&emsp;&emsp;colModel: [<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;{name : 'getObjectID',index : 'getObjectID',width : 160,align : 'center',hidden : true,search : true},<br> 
+		&emsp;&emsp;&emsp;&emsp;&emsp;{name : 'getDescription',index : 'getDescription',align : 'center'},<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;{name : 'Name',index : 'Name',align : 'center'}, <br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;{name : 'Type',index : 'Type',align : 'center'}, <br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;{name : 'IpAddress',index : 'IpAddress',align : 'center'},<br> 
+		&emsp;&emsp;&emsp;&emsp;&emsp;{name : 'PolicyName',index : 'PolicyName',align : 'center'}, <br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;{name : 'Oper/Admin',index : 'Oper/Admin',align : 'center'}      <br>     
+		&emsp;&emsp;&emsp;&emsp;],<br>
+		&emsp;&emsp;&emsp;&emsp;pager : '#ctpPager',<br>
+		&emsp;&emsp;&emsp;&emsp;height: '100%',<br>
+		&emsp;&emsp;&emsp;&emsp;rowNum:20,<br>
+		&emsp;&emsp;&emsp;&emsp;sortname: 'Name',<br>
+		&emsp;&emsp;&emsp;&emsp;sortorder: "asc",<br>
+		&emsp;&emsp;&emsp;&emsp;pginput: false,<br>
+		&emsp;&emsp;&emsp;&emsp;caption: 'Sub-Interface Table'<br>
+		&emsp;&emsp;&emsp;});<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;loadonce : true,<br>
+		&emsp;&emsp;loadComplete: function () {<br>
+	    &emsp;&emsp;&emsp;jQuery("#grid").jqGrid('setGridParam', { datatype: 'local' });<br>
+	    &emsp;&emsp;},<br>
+	&emsp;});<br>
+	&emsp;jQuery("#grid").jqGrid('navGrid', '#gridPager', {<br>
+		&emsp;&emsp;add : false,<br>
+		&emsp;&emsp;edit : false,<br>
+		&emsp;&emsp;del : false,<br>
+		&emsp;&emsp;search : false,<br>
+		&emsp;&emsp;refresh: false<br>
+	&emsp;});<br><br>
+
+	&emsp;jQuery("#grid").jqGrid(<br>
+			&emsp;&emsp;'navButtonAdd',<br>
+			&emsp;&emsp;'#gridPager',<br>
+			&emsp;&emsp;&emsp;{<br>
+				&emsp;&emsp;&emsp;&emsp;caption : "CSV",<br>
+				&emsp;&emsp;&emsp;&emsp;onClickButton : function() {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;alert("Call your own method to create a csv file");<br>
+				&emsp;&emsp;&emsp;&emsp;}<br>
+			&emsp;&emsp;&emsp;});<br>
+	&emsp;jQuery("#grid").jqGrid(<br>
+			&emsp;&emsp;'navButtonAdd',<br>
+			&emsp;&emsp;'#gridPager',<br>
+			&emsp;&emsp;&emsp;{<br>
+				&emsp;&emsp;&emsp;&emsp;caption : "PDF",<br>
+				&emsp;&emsp;&emsp;&emsp;onClickButton : function() {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;alert("Call your own method to create a pdf file");<br>
+				&emsp;&emsp;&emsp;&emsp;}<br>
+			&emsp;&emsp;&emsp;});<br>
+	&emsp;jQuery("#grid").jqGrid(<br>
+			&emsp;&emsp;'navButtonAdd',<br>
+			&emsp;&emsp;'#gridPager',<br>
+			&emsp;&emsp;&emsp;{<br>
+				&emsp;&emsp;&emsp;&emsp;caption : "XLS",<br>
+				&emsp;&emsp;&emsp;&emsp;onClickButton : function() {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;alert("Call your own method to create a xls file");<br>
+				&emsp;&emsp;&emsp;&emsp;}<br>
+			&emsp;&emsp;&emsp;});<br>
+}<br>
+	</p>
+	</div>
+</div>

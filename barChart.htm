@@ -1,0 +1,78 @@
+<div id="barChart" style="height: 99%;width: 99%;overflow:hidden;">
+<div id="barChartDialog" title="Bar Chart">
+	<div id="container" style="width: 80%; height: 50%; margin-top: 20%;margin-left: 10%"></div>
+	<div style="float:right;margin-top:150px">
+		<a href="javascript:viewSource('barChartSource');">View Source</a>
+	</div>
+</div>
+<div id="barChartSource" style="display:none;" title="Bar Chart - Source">
+<p class="syntaxhighlighter">
+var chart;<br>
+function drawBarChart() {<br>
+&emsp;chart = new Highcharts.Chart({<br>
+&emsp;&emsp;chart : {<br>
+&emsp;&emsp;&emsp;renderTo : 'container',<br>
+&emsp;&emsp;&emsp;defaultSeriesType : 'bar',<br>
+&emsp;&emsp;&emsp;borderWidth : 2,<br>
+&emsp;&emsp;&emsp;borderColor : '#000'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;title : {<br>
+&emsp;&emsp;&emsp;text : 'Historic World Population by Region'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;subtitle : {<br>
+&emsp;&emsp;&emsp;text : 'Source: Wikipedia.org'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;xAxis : {<br>
+&emsp;&emsp;&emsp;categories : [ 'Africa', 'America', 'Asia', 'Europe', 'Oceania' ],<br>
+&emsp;&emsp;&emsp;title : {<br>
+&emsp;&emsp;&emsp;&emsp;text : null<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;yAxis : {<br>
+&emsp;&emsp;&emsp;min : 0,<br>
+&emsp;&emsp;&emsp;title : {<br>
+&emsp;&emsp;&emsp;&emsp;text : 'Population (millions)',<br>
+&emsp;&emsp;&emsp;&emsp;align : 'high'<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;tooltip : {<br>
+&emsp;&emsp;&emsp;formatter : function() {<br>
+&emsp;&emsp;&emsp;return '' + this.series.name + ': ' + this.y + ' millions';<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;plotOptions : {<br>
+&emsp;&emsp;&emsp;bar : {<br>
+&emsp;&emsp;&emsp;&emsp;dataLabels : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;enabled : true<br>
+&emsp;&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;legend : {<br>
+&emsp;&emsp;&emsp;layout : 'vertical',<br>
+&emsp;&emsp;&emsp;align : 'right',<br>
+&emsp;&emsp;&emsp;verticalAlign : 'top',<br>
+&emsp;&emsp;&emsp;x : -100,<br>
+&emsp;&emsp;&emsp;y : 100,<br>
+&emsp;&emsp;&emsp;floating : true,<br>
+&emsp;&emsp;&emsp;borderWidth : 1,<br>
+&emsp;&emsp;&emsp;backgroundColor : '#FFFFFF',<br>
+&emsp;&emsp;&emsp;shadow : true<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;credits : {<br>
+&emsp;&emsp;&emsp;enabled : false<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;series : [ {<br>
+&emsp;&emsp;&emsp;name : 'Year 1800',<br>
+&emsp;&emsp;&emsp;data : [ 107, 31, 635, 203, 2 ]<br>
+&emsp;&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;name : 'Year 1900',<br>
+&emsp;&emsp;&emsp;data : [ 133, 156, 947, 408, 6 ]<br>
+&emsp;&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;name : 'Year 2008',<br>
+&emsp;&emsp;&emsp;data : [ 973, 914, 4054, 732, 34 ]<br>
+&emsp;&emsp;&emsp;} ]<br>
+&emsp;&emsp;});<br>
+&emsp;}<br>
+</p>
+</div>
+</div>

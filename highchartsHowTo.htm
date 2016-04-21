@@ -1,0 +1,60 @@
+<div id="highchartsHowTo" style="height: 99%;width: 99%;overflow:hidden;">
+<div id="highchartsHowToDialog" title="Highcharts - How to?">
+<p>
+Highcharts uses either jQuery, MooTools or Prototype for some common JavaScript tasks. 
+You need to include the JavaScript files in the section of your web page.
+We use jQuery in our project, so this tutorial will cover jQuery specific details only.
+Use this code to include Highcharts with jQuery: 
+</p>
+<p class="syntaxhighlighter">
+&lt;script src="jquery/js/jquery-1.6.4.min.js"&gt;&lt;/script&gt;<br>
+&lt;script src="highcharts/js/highcharts.js"&gt;&lt;/script&gt;
+</p>
+<h3>First Chart</h3>
+<p>
+Include the above two files to your html page. Then include the following script to that page.
+</p>
+<p class="syntaxhighlighter">
+var chart1;<br>
+$(document).ready(function() {<br>
+&emsp;chart1 = new Highcharts.Chart({<br>
+&emsp;&emsp;chart: {<br>
+&emsp;&emsp;&emsp;renderTo: 'container',<br>
+&emsp;&emsp;&emsp;type: 'bar'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;title: {<br>
+&emsp;&emsp;&emsp;text: 'Fruit Consumption'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;xAxis: {<br>
+&emsp;&emsp;&emsp;categories: ['Apples', 'Bananas', 'Oranges']<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;yAxis: {<br>
+&emsp;&emsp;&emsp;title: {<br>
+&emsp;&emsp;&emsp;&emsp;text: 'Fruit eaten'<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;series: [{<br>
+&emsp;&emsp;&emsp;name: 'Ramasamy',<br>
+&emsp;&emsp;&emsp;data: [1, 0, 4]<br>
+&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;name: 'Kuppusamy',<br>
+&emsp;&emsp;&emsp;data: [5, 7, 3]<br>
+&emsp;&emsp;}]<br>
+&emsp;});<br>
+});<br>
+</p>
+<p>
+Add a div in your webpage. 
+Give it an id refering to the renderTo option in the above script, and set a specific width and height which will be the width and height of your chart.
+</p>
+<p class="syntaxhighlighter">
+&lt;div id="container" style="width: 100%; height: 400px"&gt; &lt;/div&gt;
+</p>
+<p>
+Click <a href="javascript:zoomIn('highchartImgDialog');">here</a> to view the output of the html page.
+</p>
+</div>
+<div id="highchartImgDialog" style="display:none;">
+	<img src="images/highchart.png" align="middle"/>
+</div>
+</div>

@@ -1,0 +1,39 @@
+<div id="googleViewStart" style="height: 99%;width: 99%;overflow:auto;">
+<div id="googleViewStartDialog" title="Google Maps - Getting Started">
+<p>
+The easiest way to start learning about the Google Maps API is to see a simple example. The following web page displays a map centered on Adyar, Chennai, India:
+</p>
+<p class="syntaxhighlighter">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&emsp;&lt;head&gt;<br>
+&emsp;&emsp;&lt;meta name="viewport" content="initial-scale=1.0, user-scalable=no" /&gt;<br>
+&emsp;&emsp;&emsp;&lt;style type="text/css"&gt;<br>
+&emsp;&emsp;&emsp;&emsp;html { height: 100% }<br>
+&emsp;&emsp;&emsp;&emsp;body { height: 100%; margin: 0; padding: 0 }<br>
+&emsp;&emsp;&emsp;&emsp;#map_canvas { height: 100% }<br>
+&emsp;&emsp;&emsp;&lt;/style&gt;<br>
+&emsp;&emsp;&emsp;&lt;script type="text/javascript"&gt;<br>
+&emsp;&emsp;&emsp;&emsp;src="http://maps.googleapis.com/maps/api/js?sensor=false"><br>
+&emsp;&emsp;&emsp;&lt;/script&gt;<br>
+&emsp;&emsp;&emsp;&lt;script type="text/javascript"&gt;<br>
+&emsp;&emsp;&emsp;&emsp;function initialize() {<br>
+&emsp;&emsp;&emsp;&emsp;        var myOptions = {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;          center: new google.maps.LatLng(-34.397, 150.644),<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;          zoom: 8,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;          mapTypeId: google.maps.MapTypeId.ROADMAP<br>
+&emsp;&emsp;&emsp;&emsp;        };<br>
+&emsp;&emsp;&emsp;&emsp;        var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);<br>
+&emsp;&emsp;&emsp;      }<br>
+&emsp;&emsp;&lt;/script&gt;<br>
+&emsp;&lt;/head&gt;<br>
+&emsp;&lt;body onload="initialize()"&gt;<br>
+&emsp;&emsp;&lt;div id="map_canvas" style="width:100%; height:100%"&gt;&lt;/div&gt;<br>
+&emsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+</p>
+<p>
+Click <a href="javascript:window.open('googleMapsExample1.htm','Google Maps - Hello World');">here</a> to view example
+</p>
+</div>
+</div>

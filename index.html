@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- jQuery css -->
+<link rel="stylesheet" href="jquery/themes/base/jquery.ui.all.css">
+
+<!-- Custom css -->
+<link rel="stylesheet" href="css/accordion.css">
+<link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/ui.jqgrid.css">
+<link rel="stylesheet" href="css/jquery.contextmenu.css">
+
+<!-- jQuery -->
+<script src="jquery/js/jquery-1.7.1.min.js"></script>
+<script src="jquery/js/jquery-ui-1.8.14.custom.min.js"></script>
+<script src="jquery/js/jquery.corner.js"></script>
+<script src="jquery/js/jquery.jdigiclock.js"></script>
+<script src="jquery/ui/jquery.ui.core.js"></script>
+<script src="jquery/ui/jquery.ui.widget.js"></script>
+<script src="jquery/ui/jquery.ui.mouse.js"></script>
+<script src="jquery/ui/jquery.ui.draggable.js"></script>
+<script src="jquery/ui/jquery.ui.dialog.js"></script>
+<script src="jquery/ui/jquery.ui.position.js"></script>
+<script src="js/jquery.contextmenu.js"></script>
+<script src="jquery/ui/jquery.ui.mouse.js"></script>
+<script src="jquery/ui/jquery.ui.draggable.js"></script>
+
+<!-- jqGrid -->
+<script src="jquery/js/grid.locale-en.js"></script>
+<script src="jquery/js/jquery.jqGrid.min.js"></script>
+
+<!-- Highcharts -->
+<script src="highcharts/js/highcharts.js"></script>
+
+<!-- Google Maps -->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<!-- Custom java scripts -->
+<script src="js/ajaxPageLoad.js"></script>
+<script src="js/map.js"></script>
+<script src="js/barChart.js"></script>
+<script src="js/columnChart.js"></script>
+<script src="js/pieChart.js"></script>
+<script src="js/lineChart.js"></script>
+<script src="js/dynamicChart.js"></script>
+<script src="js/comboChart.js"></script>
+<script src="js/jqGrid.js"></script>
+<script src="js/jqSubGrid.js"></script>
+<script src="js/googleView.js"></script>
+<script src="js/googleRoutes.js"></script>
+<script src="js/clock.js"></script>
+
+<!-- arbor map -->
+<script src="js/arbor.js"></script>
+<script src="js/arborExample.js"></script>
+
+<!-- springy map -->
+<script src="js/springy.js"></script>
+<script src="js/springyui.js"></script>
+<script src="js/springyExample.js"></script>
+
+<script>
+$(document).ready(function() {
+	$("#accordion").accordion({
+		header : "> div > h2",
+		fillSpace : true,
+	});
+	$('.switcher').themeswitcher();
+});
+</script>
+<title>Home</title>
+</head>
+<body onload="javascript:ajaxPage('drag_drop.htm','entry');displayClock();">
+
+	<!-- Map Tool Tip -->
+	<script language="JavaScript" src="js/wz_tooltip.js"></script>
+	
+	<!-- jQuery Theme Switcher -->
+	<script language="JavaScript" src="jquery/js/themeSwitcherTool.js"></script>
+		
+	</script>
+	<div class="header">
+	<div class="digiclock">
+		<div id="Date"></div>
+   		<ul class="clock">
+   	    	<li id="hours" class="clock"></li>
+   	      	<li id="point" class="clock">:</li>
+   	      	<li id="min" class="clock"></li>
+   	      	<li id="point" class="clock">:</li>
+   	      	<li id="sec" class="clock"></li>
+   	  	</ul>
+	</div>
+	<div class="switcher"></div>
+	</div>
+	<div class="outer">
+		<div class="canvas" id="canvas">
+			<div class="leftnav">
+				<div id="accordion" style="width: 98%; height:100%">
+				<div>
+					<h2><a href="#">Network Maps</a></h2>
+					<div id='jQuery'>
+					<ul style="text-align:left;margin:1em 0;padding:0">
+    	      			<li><a href="javascript:ajaxPage('drag_drop.htm','entry');">
+    	      				Using jQuery
+    	      			</a></li>
+    	      			<br>
+    	      			<li><a href="javascript:ajaxPage('arbor.htm','entry');">
+    	      				Using arbor.js
+    	      			</a></li>
+    	      			<br>
+    	      			<li><a href="javascript:ajaxPage('springy.htm','entry');">
+    	      				Using springy.js
+    	      			</a></li>
+    	      		</ul>
+    	      		</div>
+				</div>
+				<div>
+					<h2><a href="#">jqGrid</a></h2>
+					<div id='jqGrid_'>
+					<ul style="text-align:left;margin:1em 0;padding:0">
+						<li><a href="javascript:ajaxPage('jqGridHowTo.htm','entry');">
+    	      				How To use?
+    	      			</a></li>
+    	      			<br>
+    	      			<li><a href="javascript:ajaxPage('jqGrid.htm','entry');">
+    	      				jqGrid
+    	      			</a></li>
+    	      			<br>
+    	      			<li><a href="javascript:ajaxPage('jqSubGrid.htm','entry');">
+    	      				jqSubGrid
+    	      			</a></li>
+					</ul>
+					</div>
+				</div>
+				<div>
+					<h2><a href="#">Highcharts</a></h2>
+					<div id='highchart'>
+					<ul style="text-align:left;margin:1em 0;padding:0">
+						<li><a href="javascript:ajaxPage('highcharts.htm','entry');">
+    	      				What is Highcharts?
+    	      			</a></li>
+          				<br>
+          				<li><a href="javascript:ajaxPage('highchartsHowTo.htm','entry');">
+    	      				How to use?
+    	      			</a></li>
+          				<br>
+    	      			<li><a href="javascript:ajaxPage('barChart.htm','entry');">
+    	      				Bar Chart
+    	      			</a></li>
+          				<br>
+          				<li><a href="javascript:ajaxPage('columnChart.htm','entry');">
+    	      				Column Chart
+    	      			</a></li>
+    	      			<br>
+          				<li><a href="javascript:ajaxPage('pieChart.htm','entry');">
+    	      				Pie Chart
+    	      			</a></li>
+    	      			<br>
+          				<li><a href="javascript:ajaxPage('lineChart.htm','entry');">
+    	      				Line Chart
+    	      			</a></li>
+    	      			<br>
+          				<li><a href="javascript:ajaxPage('dynamicChart.htm','entry');">
+    	      				Dynamic Chart
+    	      			</a></li>
+    	      			<br>
+          				<li><a href="javascript:ajaxPage('comboChart.htm','entry');">
+    	      				Combo Chart
+    	      			</a></li>
+					</ul>
+					</div>
+				</div>
+				<div>
+					<h2><a href="#">Google Maps</a></h2>
+					<div id='googleMap'>
+					<ul style="text-align:left;margin:1em 0;padding:0">
+						<li><a href="javascript:ajaxPage('googleViewStart.htm','entry');">
+    	      				Getting Started
+    	      			</a></li>
+    	      			<br>
+						<li><a href="javascript:ajaxPage('googleView.htm','entry');">
+    	      				Google Maps - NMS
+    	      			</a></li>
+    	      			<br>
+						<li><a href="javascript:ajaxPage('googleRoutesHowTo.htm','entry');">
+    	      				Google Maps - Routes
+    	      			</a></li>
+    	      		</ul>
+    	      		</div>
+    	      	</div>
+				</div>
+			</div>
+			<div class="entry" id="entry">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

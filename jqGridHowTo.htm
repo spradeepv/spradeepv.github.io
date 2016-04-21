@@ -1,0 +1,43 @@
+<div id="jqGridHowTo" style="height: 99%; width: 99%; overflow: hidden;">
+	<div id="jqGridHowToDialog" title="jqGrid - How To?">
+	<p>
+	jqGrid is an Ajax-enabled JavaScript control that provides solutions for representing and manipulating tabular data on the web. Since the grid is a client-side solution loading data dynamically through Ajax callbacks, it can be integrated with any server-side technology, including PHP, ASP, Java Servlets, JSP, ColdFusion, and Perl.
+		jqGrid uses a jQuery Java Script Library and is written as plugin for that package. For more information on jQuery, please refer to the jQuery web site.<br><br>
+	jqGrid's Home page can be found <a href="javascript:window.open('http://www.trirand.com/blog','jqGridHome');">here</a>.<br><br>
+	Working examples of jqGrid, with explanations, can be found <a href="javascript:window.open('http://www.trirand.com/jqgrid/jqgrid.html','jqGrid_Examples');">here</a>.<br>
+	</p>
+	
+	<h3><u>HTML</u></h3>
+	<p class="syntaxhighlighter">
+	...<br>
+	&lt;table id="list2"&gt;&lt;/table&gt;<br>
+	&lt;div id="pager2"&gt;&lt;/div&gt;<br>
+	</p>
+	<h3><u>Java Script code</u></h3>
+	<p class="syntaxhighlighter"> 
+	...<br>
+	jQuery("#list2").jqGrid({<br>
+   		url:'server.php?q=2',<br>
+		datatype: "json",<br>
+   		colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],<br>
+   		colModel:[<br>
+   			{name:'id',index:'id', width:55},<br>
+   			{name:'invdate',index:'invdate', width:90},<br>
+   			{name:'name',index:'name asc, invdate', width:100},<br>
+   			{name:'amount',index:'amount', width:80, align:"right"},<br>
+   			{name:'tax',index:'tax', width:80, align:"right"},<br>
+   			{name:'total',index:'total', width:80,align:"right"},<br>		
+   			{name:'note',index:'note', width:150, sortable:false}<br>		
+   		],<br>
+   		rowNum:10,<br>
+   		rowList:[10,20,30],<br>
+   		pager: '#pager2',<br>
+   		sortname: 'id',<br>
+   	 viewrecords: true,<br>
+   	 sortorder: "desc",<br>
+   	 caption:"JSON Example"<br>
+	});	<br>
+	jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});<br>
+	</p>
+	</div>
+</div>

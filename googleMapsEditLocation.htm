@@ -1,0 +1,87 @@
+<html>
+<head>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="js/googleMapEditLocation.js"></script>
+<link rel="stylesheet" href="css/home.css">
+<style>
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60%;
+    text-decoration: none;
+    color: #000;
+}
+
+.header2 {    
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 80%; 
+    font-weight: bold; 
+    color: #000;
+}
+</style>
+</head>
+<body onload="loadMap();">
+<div id="googleViewEditLocations" style="height: 99%;width: 99%;overflow:auto;">
+<div id="googleViewEditLocationsDialog" title="Google Maps View - Edit Location">
+<input type="hidden" id="latitude" name="latitude" value="13.0011774"> 
+<input type="hidden" id="longitude" name="longitude" value="80.25649569999996"> 
+<input type="hidden" id="rname" name="rname" value="192.168.9.209"> 
+<input type="hidden" id="lname" name="lname" value="Chennai"> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="bgNone" align="center"> 
+<tr align="left" valign="middle"> 
+<td colspan="2" class="header2Bg">&nbsp;Configuring Google Map View</td> 
+</tr> 
+<tr> 
+<td class="treeBg" align="center" style="padding:5px;" colspan="2"> 
+<div id="gmapEdit" style="height: 350px;"></div> 
+</td> 
+</tr> 
+<tr  class="rowOdd" > 
+<td width="30%">&nbsp;</td> 
+<td align="left" class="text" height="30"><b>Router Name:</b> 
+192.168.9.209</td> 
+</tr> 
+<tr class="rowEven" > 
+<td >&nbsp;</td> 
+<td align="left" class="text" height="30"><b>Location Name:</b> 
+<input name="location1" id="location1" type="text" class="userTextFields" style="height:18px" value=""> 
+<a href="javascript:showLocation();">Show on Map</a></td></tr> 
+<tr class="rowOdd" > 
+<td align="center" colspan="2" height="35"> 
+<input name="saveLoc" type="button" class="buttonStyle" value="Save Location" onClick="javascript:checkAndSaveLocation();" > 
+</td></tr> 
+</table> 
+<table width="100%" border="0" class="bgNone" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:20px;margin-top:10px;"> 
+<tr> 
+<td  style="padding:7px;" align="left">
+<table style="margin-bottom:7px;" width="100%" border="0" cellspacing="0" cellpadding="0"> 
+<tr> 
+<td class="norTxt">
+<span class="header2">Help</span> <span class="text">: Please choose any one of the two options to select a location on the map</span>
+</td> 
+</tr> 
+</table> 
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"> 
+<tr> 
+<td width="50%" valign="top" class="text">
+<ul> 
+<li>Click on the location to place the device on the map. Use the controls on the top left to navigate or zoom.</li> 
+<li>To change the location, click on the image. It will vanish and you  can select a new location.</li> 
+<li>Enter the location in the 'Location Name' field and hit &quot;Save  location&quot; </li> 
+</ul>
+</td> 
+<td width="50%" valign="top" class="text"><ul> 
+<li>Enter the location in the "Location Name" and click on "Show on Map". The image will be placed on the location specified.</li> 
+<li>Click on "Save Location"</li> 
+</ul></td> 
+</tr> 
+</table>
+</td> 
+</tr> 
+</table>
+<script>
+loadMap();
+</script>
+</div>
+</div>
+</body>
+</html>

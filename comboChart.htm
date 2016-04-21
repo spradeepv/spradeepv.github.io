@@ -1,0 +1,90 @@
+<div id="comboChart" style="height: 99%;width: 99%;overflow:hidden;">
+<div id="comboChartDialog" title="Combo Chart">
+	<div id="container" style="width: 80%; height: 50%; margin-top: 20%;margin-left: 10%"></div>
+	<div style="float:right;margin-top:150px">
+		<a href="javascript:viewSource('comboChartSource');">View Source</a>
+	</div>
+</div>
+<div id="comboChartSource" style="display:none;" title="Combo Chart - Source">
+<p class="syntaxhighlighter">
+var chart;<br>
+function drawComboChart() {<br>
+&emsp;chart = new Highcharts.Chart({<br>
+&emsp;&emsp;chart : {<br>
+&emsp;&emsp;&emsp;renderTo : 'container',<br>
+&emsp;&emsp;&emsp;borderWidth : 2,<br>
+&emsp;&emsp;&emsp;borderColor : '#000'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;title : {<br>
+&emsp;&emsp;&emsp;text : 'Combination chart'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;xAxis : {<br>
+&emsp;&emsp;&emsp;categories : [ 'Apples', 'Oranges', 'Pears', 'Bananas', 'Plums' ]<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;tooltip : {<br>
+&emsp;&emsp;&emsp;formatter : function() {<br>
+&emsp;&emsp;&emsp;&emsp;var s;<br>
+&emsp;&emsp;&emsp;&emsp;if (this.point.name) { // the pie chart<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;s = '' + this.point.name + ': ' + this.y + ' fruits';<br>
+&emsp;&emsp;&emsp;&emsp;} else {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;s = '' + this.x + ': ' + this.y;<br>
+&emsp;&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;&emsp;return s;<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;labels : {<br>
+&emsp;&emsp;&emsp;items : [ {<br>
+&emsp;&emsp;&emsp;&emsp;html : 'Total fruit consumption',<br>
+&emsp;&emsp;&emsp;&emsp;style : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;left : '40px',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;top : '8px',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;color : 'black'<br>
+&emsp;&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;} ]<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;series : [ {<br>
+&emsp;&emsp;&emsp;type : 'column',<br>
+&emsp;&emsp;&emsp;name : 'Jane',<br>
+&emsp;&emsp;&emsp;data : [ 3, 2, 1, 3, 4 ]<br>
+&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;type : 'column',<br>
+&emsp;&emsp;&emsp;name : 'John',<br>
+&emsp;&emsp;&emsp;data : [ 2, 3, 5, 7, 6 ]<br>
+&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;type : 'column',<br>
+&emsp;&emsp;&emsp;name : 'Joe',<br>
+&emsp;&emsp;&emsp;data : [ 4, 3, 3, 9, 0 ]<br>
+&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;type : 'spline',<br>
+&emsp;&emsp;&emsp;name : 'Average',<br>
+&emsp;&emsp;&emsp;data : [ 3, 2.67, 3, 6.33, 3.33 ]<br>
+&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;type : 'pie',<br>
+&emsp;&emsp;&emsp;name : 'Total consumption',<br>
+&emsp;&emsp;&emsp;data : [<br> 
+&emsp;&emsp;&emsp;&emsp;{<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;name : 'Jane',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;y : 13,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;color : '#4572A7' // Jane's color<br>
+&emsp;&emsp;&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;name : 'John',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;y : 23,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;color : '#AA4643' // John's color<br>
+&emsp;&emsp;&emsp;&emsp;}, {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;name : 'Joe',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;y : 19,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;color : '#89A54E' // Joe's color<br>
+&emsp;&emsp;&emsp;&emsp;} <br>
+&emsp;&emsp;&emsp;],<br>
+&emsp;&emsp;&emsp;center : [ 100, 80 ],<br>
+&emsp;&emsp;&emsp;size : 100,<br>
+&emsp;&emsp;&emsp;showInLegend : false,<br>
+&emsp;&emsp;&emsp;dataLabels : {<br>
+&emsp;&emsp;&emsp;&emsp;enabled : false<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;} ]<br>
+&emsp;});<br>
+}<br>
+</p>
+</div>
+</div>

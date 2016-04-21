@@ -1,0 +1,143 @@
+canvas#mapCanvas {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0px;
+	z-index: -1;
+	background-color: gray;
+}
+
+div#mapSelect {
+	align: center;
+	margin-top: 1%;
+	margin-left: 30%;
+	position: absolute;	
+    width: 40%;
+    height: 5%;
+    border: 0px solid blue;
+}
+
+div#mapContainer {
+	position: relative;
+	width: 99%;
+	height: 84%;
+	margin: 7.5% 0 0 0;
+	padding: 0px;
+	overflow: auto;
+	background-image:url(../../images/dynamicAnchorBg.jpg);
+	background-color: #f8f8f8;
+	border: 2px solid;
+	border-color: #deedf7;
+}
+
+div#mapContainerLsp {
+	position: relative;
+	width: 99%;
+	height: 84%;
+	margin: 0 0 0 0;
+	padding: 0px;
+	overflow: auto;
+	background-image:url(../../images/dynamicAnchorBg.jpg);
+	background-color: #f8f8f8;
+	border: 2px solid;
+	border-color: #deedf7;
+}
+
+
+div#mapInputContent {
+	position: absolute;
+	margin-top: 0px;
+	margin-left: auto;
+    width: 100%;
+    height: 5%;
+    border: 0px solid blue;
+}
+
+.blk {
+	display: block;
+	position: absolute;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	border-radius: 8px;
+	padding: 3px;
+	z-index: 10;
+}
+
+.bl {
+	opacity: 0.9;
+	border: 1px solid #000;
+	background: #fff;
+	position: absolute;
+	padding: 3px;
+	z-index: 10
+}
+
+.blk h1,.blk ul,.blk li {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+div.line {
+	-webkit-transform-origin-x: 0px;
+	-webkit-transform-origin-y: 50%;
+	-webkit-transition: -webkit-transform 1s;
+	-moz-transform-origin: 0% 50%;
+	-moz-transition: -webkit-transform 1s;
+	background: #948C79;
+	height: 3px;
+	opacity: 0.5;
+	text-align: center;
+	text-shadow: black;
+}
+
+div.line:hover {
+	background: #C30;
+	box-shadow: 0 0 10px #C30;
+	opacity: 1;
+}
+
+div.line.active{
+    background: #666;
+    box-shadow: 0 0 10px #666;
+    opacity: 1;
+}
+
+/* this original for Autocomplete Combobox */
+.ui-button { margin-left: -1px; }
+.ui-button-icon-only .ui-button-text { padding: 0.35em; } 
+.ui-autocomplete-input { margin: 0; padding: 0.48em 0 0.47em 0.45em; }
+/* *** Add this for visible Scrolling ;) */
+.ui-autocomplete {
+	max-height: 400px;
+	overflow-y: scroll;
+	/* prevent horizontal scrollbar */
+	overflow-x: auto;
+	/* add padding to account for vertical scrollbar */
+	padding-right: 20px;
+}
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+.ui-autocomplete {
+		height: 100px;
+}
+
+.ui-widget-overlay {
+    background: black;
+    filter: alpha(opacity = 50);
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+}
+
+.symbolText {
+	color: brown;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	background-color: white;
+}

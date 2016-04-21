@@ -1,0 +1,448 @@
+	<!-- Router Menu -->
+	<ul id="routerMenu" class="contextMenu">
+		<li class="displayProperties"><a href="#displayProperties">Device Info</a></li>
+	</ul>
+	
+	<div id="tabs" style="height: 99%;width: 99%;overflow:auto;">
+		<ul>
+			<li><a href="#tabs-1">Simpe Drag and Drop</a>
+			</li>
+			<li><a href="#tabs-2">Drag and Drop with a Line</a>
+			</li>
+			<li><a href="#tabs-3">Drag and Drop with multiple Lines</a>
+			</li>
+		</ul>
+		<div id="mapDiv" style="height: 90%;width: 99%;overflow:auto;">
+		<div id="tabs-1" style="height: 95%;width:95%;overflow:auto;">
+			<p>
+				<div id="a" name="Test-A" type="router" class="blk" style="background-color:lightgreen; left:15px; top:50px;" onmouseover="Tip('A')" onMouseOut="UnTip()">	
+					 <li id="a" rel="" color="green,green,green,green,green,green,green,green,green,green,green" name="x-y,x-y,x-y,x-y,x-y,x-y,x-y,x-y,x-y,x-y" label="x-y,x-y,x-y,x-y,x-y,x-y,x-y,x-y,x-y,x-y">
+						<img src="images/router.png" width="30px" height="30px">
+					</li>
+					<div style="position:absolute;float: left;">
+                    	<span class="symbolText">Test-A</span>
+                    </div>
+				</div>
+				<div id="info" style="width:300px;background-color:lightgray; right:50px; top:35px;position:absolute;-moz-border-radius: 8px;-webkit-border-radius: 8px;-khtml-border-radius: 8px;border-radius: 8px;">
+					&emsp;* Drag and Drop the symbol
+					<br>
+					&emsp;* Right Click on the symbol for menu<br>
+					<br><br><br>
+				</div>
+			</p>
+		</div>
+		<div id="tabs-2" style="height: 95%;width:95%;overflow:auto;">
+			<p>
+				<div id="x" name="Test-X" type="router" class="blk" style="background-color:lightgreen; left:200px; top:300px;" onmouseover="Tip('X')" onMouseOut="UnTip()">	
+					 <li id="x" rel="y" color="green" name="x-y" label="x-y">
+						<img src="images/router.png" width="40px" height="40px">
+					</li>
+					<div style="position:absolute;float: left;">
+                    	<span class="symbolText">Test-X</span>
+                    </div>
+				</div>
+				<div id="y" name="Test-Y" type="switch" class="blk" style="background-color:red;left:300px; top:300px;" onmouseover="Tip('Y')" onMouseOut="UnTip()">
+		 			<li id="y" rel="" name="" label="">  
+				       	<img src="images/switch.png" width="40px" height="40px">
+					</li>
+					<div style="position:absolute;float: left;">
+                    	<span class="symbolText">Test-Y</span>
+                    </div>
+				</div>
+			</p>
+		</div>
+		<div id="tabs-3" style="height: 95%;width:95%;overflow:auto;">
+			<p>
+				<div id="c" name="Test-C" type="router" class="blk" style="background-color:lightgreen; left:250px; top:50px;" onmouseover="Tip('C')" onMouseOut="UnTip()">	
+					 <li id="c" rel="d*2,e" color="red,orange,cyan" name="c-d,d-c,c-e" label="c-d,d-c,c-e">
+						<img src="images/switch.png" width="30px" height="30px">
+					</li>
+					<div style="position:absolute;float: left;">
+                    	<span class="symbolText">Test-C</span>
+                    </div>
+				</div>
+				
+				<div id="d" name="Test-D" type="switch" class="blk" style="background-color:red;left:75px; top:250px;" onmouseover="Tip('D')" onMouseOut="UnTip()">
+		 			<li id="d" rel="" name="" label="">  
+				       	<img src="images/router.png" width="30px" height="30px">
+					</li>
+					<div style="position:absolute;float: left;">
+                    	<span class="symbolText">Test-D</span>
+                    </div>
+				</div>
+				<div id="e" name="Test-E" type="switch" class="blk" style="background-color:red;left:500px; top:250px;" onmouseover="Tip('E')" onMouseOut="UnTip()">
+		 			<li id="e" rel="" name="" label="">
+						<img src="images/router.png" width="30px" height="30px">	
+					</li>
+					<div style="position:absolute;float: left;">
+                    	<span class="symbolText">Test-E</span>
+                    </div>
+				</div>
+			</p>
+		</div>
+		</div>
+		<div style="float:right;">
+			&emsp;&emsp;<img src="images/animated_arrow.gif" style="margin-right:0px;width:15px;height:20px;" /><br>
+			<a href="javascript:viewMapSource();corner();"> Click here </a>
+			<div id="viewSource" title="Source - Drag and Drop" style="display:none">
+				<table width="100%" align="left">
+				<tr>
+				<td colspan="2" align="left">
+				<p>
+				This tutorial will explain how to draw symbols and links between them. This is useful in 
+				NMS (Network Management System) where a network needs to be represented on a map. A network may have routers,
+				switches, firewalls and other type of devices, all have to be represented on the map. The devices may be connected
+				to one another or may not be connected at all or may have multiple connections between them, everything needs to
+				be shown on the map to make it meaningful. This tutorial will show you how to do that in a simple way using 
+				<a href="javascript:window.open('http://jquery.com/','jquery')">jQuery</a>.<br>Using jQuery one can drag a symbol to 
+				one's desired position and can implement a method to save the co-ordinates of the symbol in DB or in Memory. The symbols 
+				and links can have its own menu(<a href="javascript:window.open('http://www.google.co.in/url?sa=t&rct=j&q=jquery+jContextMenu&source=web&cd=1&ved=0CDMQFjAA&url=http%3A%2F%2Fwww.abeautifulsite.net%2Fblog%2F2008%2F09%2Fjquery-context-menu-plugin%2F&ei=sFIvT4y_AcyrrAe22v3XDA&usg=AFQjCNG2wEX3427h_eHNO-2x5578STmswQ','jContextMenu')">jContextMenu</a>), from where other detailed information can be shown. The source code and its corresponding 
+				explanation is given below.
+				</p>  
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<h3>
+				<br><u>JSP Code to draw Map Symbols</u><br><br>
+				</h3>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left" width="100%" class="syntaxhighlighter">
+				<p>
+				&lt;div id="mapDiv" style="height: 94%;width: 99%;overflow:hidden;"&gt; <br>
+				&emsp;&lt;div id="a" name="Test-A" type="router" class="blk" style="background-color:lightgreen; left:15px; top:50px;" onmouseover="Tip('A')" onMouseOut="UnTip()"&gt;<br>	
+			 	&emsp;&emsp;&lt;li id="a" rel="" color="green" name="" label=""&gt;<br>
+				&emsp;&emsp;&emsp;&lt;img src="images/router.png"&gt;<br>
+				&emsp;&emsp;&lt;/li&gt; <br>
+				&emsp;&emsp;&lt;div style="position:absolute;float: left;"&gt;<br>
+                &emsp;&emsp;&emsp;&lt;span class="symbolText">Test-A&lt;/span&gt;<br>
+                &emsp;&emsp;&lt;/div&gt;<br>
+				&emsp;&lt/div&gt;<br>
+				&lt/div&gt;<br>
+				</p>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<h3>
+				<br><u>Explanation</u><br><br>
+				</h3>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<p>
+					The JSP code will render the symbols to be represented on a map.<br> 
+					The &lt;div&gt; element with id 'mapDiv' is the container which will hold all the symbols and links.<br> 
+					The next &lt;div&gt; element is the one which contains the details of the symbol like 'name' of the symbol, 'type' of 
+					the symbol (Router, Switch, Firewall...), 'background-color' which represents the<br> 
+					&emsp;device status, 'left' - x coordinate of the device, 'top' - y coordinate of the device.<br>
+					The &lt;li&gt; contains the details of the link/links originating from that symbol. It details contained are :<br>
+					&emsp;* 'rel' - contains the destination symbol's &lt;div&gt; id. If there are more than 1 link between any two symbols 
+					it is represented as rel='destinationDivId*numberOfLinks', eg: if there are two links <br>
+					&emsp; between symbols with id a and b, a will have its rel attribute as rel="b*2"<br>
+					&emsp; If there are multiple links between symbols, they are separated by a comma. eg: rel="b*2,c,d*2"<br>
+					&emsp;* 'name' - holds the names of the link/links, eg: for symbol with div id 'a' if rel='b*2,c' then name should be
+					name='b-a,a-b,a-c'. If you observe carefully, the name attribute will have the names<br> 
+					&emsp; of all the links originating from the symbol separated by a comma.<br>
+					&emsp;* 'label' - should contain the common names of the links to be shown when hovering over the link. This follows the same
+					format as the 'name' attribute<br>
+					&emsp;* 'color' - gives the color to the link/links. This too follows the format as 'name' attribute<br>
+					We need to differentiate between devices, in order to do that we have the image tag with the corresponding path to the image.<br>
+					The last div contains the label to be displayed for the image.<br>
+					<br>
+				</p>
+				</td>
+				<tr>
+				<td colspan="2" align="left">
+				<h3>	
+					<br><u>JS code to draw Map Links</u><br><br>
+				</h3>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<p>
+					Now that we have drawn all the symbols and also have the details to draw links between them, let us see how to draw links. 
+					To draw links we use javascript and jQuery.
+					
+					Click <a href="javascript:window.open('view-source:http://localhost:8000/js/map.js','Map','scrollbars=yes');">here</a> to view the javascript that is used to draw links and to make the symbols draggable.<br>
+					Let us look at the functions used to draw lines in detail.<br><br>
+				</p>
+				</td>
+				</tr>
+				<br>
+				<tr>
+				<td colspan="2" align="left">
+				<br><h3>1.<u> drawLines()</u></h3><br>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<p>
+					&emsp;This function is the starting point, it is like an init function which calls other functions in correct order to draw lines.<br> 
+					&emsp;It calls the following functions in the order they are listed.<br>
+				</p>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<a name="updateCanvas"></a>
+				<br><h3>&emsp;* <u>updateCanvas(blkEls, dragObj)</u></h3><br>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<p>
+					&emsp;&emsp;This function will draw the lines from one symbol to another. A simple algorithm of the function is given below:<br>
+				</p>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" width="300px" align="left">
+				<p class="syntaxhighlighter">
+					&emsp;&emsp;forEach('.blks') {<br>
+					&emsp;&emsp;&emsp;forEach('li') {<br>
+					&emsp;&emsp;&emsp;&emsp;if(contains('rel')) {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;if('rel'.indexOf(',')) {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if('relEl'.indexOf('*')) {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;for(numberOfLinks) { <br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="#createLine">createLine</a>(srcX,srcY,destX,destY,lineColor,lineName,lineLabel);<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;} else () {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="#createLine">createLine</a>(srcX,srcY,destX,destY,lineColor,lineName,lineLabel);<br> 
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;} else() {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if('relEl'.indexOf('*')) {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;for(numberOfLinks) { <br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="#createLine">createLine</a>(srcX,srcY,destX,destY,lineColor,lineName,lineLabel);<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;} else () {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="#createLine">createLine</a>(srcX,srcY,destX,destY,lineColor,lineName,lineLabel);<br> 
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;}<br>	
+					&emsp;&emsp;&emsp;&emsp;} else {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;Nothing to Draw<br>
+					&emsp;&emsp;&emsp;&emsp;}<br>
+					&emsp;&emsp;&emsp;}<br>	
+					&emsp;&emsp;}<br>
+				</p>
+				</td>
+				</tr>
+				<br>
+				<tr>
+				<td colspan="2" align="left">
+				<br><h3>&emsp;* <u>createMenu()</u></h3><br>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<p>
+					This function is used to create menus for the symbols and links. We use <a href="javascript:window.open('http://www.google.co.in/url?sa=t&rct=j&q=jquery+jContextMenu&source=web&cd=1&ved=0CDMQFjAA&url=http%3A%2F%2Fwww.abeautifulsite.net%2Fblog%2F2008%2F09%2Fjquery-context-menu-plugin%2F&ei=sFIvT4y_AcyrrAe22v3XDA&usg=AFQjCNG2wEX3427h_eHNO-2x5578STmswQ','jContextMenu')">jQuery Context Menu Plugin</a> to create the menus.<br>
+					The 'type' attribute of the div element is used to create a particular menu for that symbol. The menu is defined inside &lt;ul&gt; and &lt;li&gt; elements. This is how it looks :<br>
+				</p>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left" class="syntaxhighlighter">
+				<p>
+					&emsp;&emsp;&emsp;&lt;ul id="routerMenu" class="contextMenu"&gt;<br>
+					&emsp;&emsp;&emsp;&emsp;&lt;li class="displayProperties"&gt;<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&lt;a href="#action"><br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Device Info<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/a&gt;<br>
+					&emsp;&emsp;&emsp;&emsp;&lt;/li&gt;<br>
+					&emsp;&emsp;&emsp;&lt;/ul&gt;<br>
+				</p>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<p>
+					This code will create a menu with text 'Device Info' and the corresponding action to be taken is provided in the &lt;a&gt; tag with a # prefixing the action to taken.<br>
+					The type attribute in the symbol's div is used to assign the corresponding menu to the symbol.<br>
+				</p>
+				</td>
+				</tr>
+				<tr>
+				<td align="left" width="50%" height="200px" class="syntaxhighlighter">
+				<p>
+					&emsp;&emsp;var divList = $("div[type^='router']");<br>
+					&emsp;&emsp;for ( var i = 0; i &lt; divList.length; i++) {<br>
+					&emsp;&emsp;&emsp;$("#" + divList[i].id).contextMenu({<br>
+					&emsp;&emsp;&emsp;&emsp;menu : 'routerMenu'<br>
+					&emsp;&emsp;&emsp;}, function(action, el, pos) {<br>
+					&emsp;&emsp;&emsp;&emsp;var name = $(el).attr('name');<br>
+					&emsp;&emsp;&emsp;&emsp;if (action == 'displayProperties') {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;alert("You clicked on Device Info");<br>
+					&emsp;&emsp;&emsp;&emsp;}<br>
+					&emsp;&emsp;&emsp;});<br>
+					&emsp;&emsp;}<br>			
+				</p>
+				</td>
+				<td align="left" width="50%" height="200px" class="explanationhighlighter">
+				<p>
+					In the first line of the above code, we get all the div elements whose 'type' attribute starts with router.<br>
+					Next we iterate over the list of div elements<br>
+					We bind the contextmenu to the symbol<br>
+					Specify which menu to bind(&lt;ul&gt; element's id)<br>
+					Optionally, we can have a callback when a menu is clicked. This function has the action - specified in &lt;a&gt; href, el - the div element, and pos - x,y coordinates, as arguments.<br>
+				</p>
+				</td>
+				</tr>
+				<br>
+				<tr>
+				<td colspan="2" align="left">
+				<br><h3>&emsp;* <u>makeDraggable()</u></h3><br>
+				</td>
+				</tr>
+				<tr>
+				<td align="left" width="50%" height="200px" class="syntaxhighlighter">
+				<p>
+					&emsp;&emsp;function makeDraggable() {<br>
+					&emsp;&emsp;&emsp;var innerDivs = $("div[class^='blk']");<br>
+					&emsp;&emsp;&emsp;for ( var i = 0; i < innerDivs.length; i++) {<br>
+					&emsp;&emsp;&emsp;&emsp;$("#" + innerDivs[i].id).draggable({<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;stop : function(event, ui) {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;var position = $(this).position();<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updateLines($(this).attr("id"));<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createMenu();<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+					&emsp;&emsp;&emsp;&emsp;});<br>
+					&emsp;&emsp;&emsp;}<br>
+					&emsp;&emsp;}<br>
+				</p>
+				</td>
+				<td align="left" width="50%" height="200px" class="explanationhighlighter">
+				<p>
+				The symbols rendered on the page are not draggable by default. This function will make the symbols draggable<br>
+				- Get all the div elements with class 'blk'. This will get all the map symbols on the page<br>
+				- Iterate through the list of div elements<br>
+				- Then use the jQuery's <a href="javascript:window.open('http://www.google.co.in/url?sa=t&rct=j&q=jquery+draggable&source=web&cd=1&ved=0CCoQFjAA&url=http%3A%2F%2Fjqueryui.com%2Fdemos%2Fdraggable%2F&ei=eFozT-mTFIHJrQeK1eDDDA&usg=AFQjCNFaw-2h9645nkXG5IIrmAtHkc3SYg','Draggable');">draggable()</a> function to make the symbol draggable<br>
+				- There are many events generated when an object is dragged. We listen to the stop event, so that we can <br>
+				  redraw the lines associated to the symbol(see <a href="#updateLines">updateLines()</a> function)<br>
+				</p>
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<a name="createLine"></a>
+				<br><h3>&emsp;* <u>createLine(srcX,srcY,destX,destY,lineColor,lineName,lineLabel)</u></h3><br>
+				</td>
+				</tr>
+				<tr>
+				<td align="left" height="400px" class="syntaxhighlighter">
+				<p>
+				&emsp;&emsp;function createLine(x1, y1, x2, y2, color, linkName, linkLabel) {<br>
+				&emsp;&emsp;&emsp;var length = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));<br>
+				&emsp;&emsp;&emsp;var angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;<br>
+				&emsp;&emsp;&emsp;var id = linkName;<br>
+				&emsp;&emsp;&emsp;if(id != undefined) {<br>
+				&emsp;&emsp;&emsp;&emsp;id = id.replace(/\./g, "_");<br>
+				&emsp;&emsp;&emsp;&emsp;id = id.replace(/\//g, "_");<br>
+				&emsp;&emsp;&emsp;&emsp;id = id.replace(/\=/g, "_");<br>
+				&emsp;&emsp;&emsp;&emsp;var ids = new Array();<br>
+				&emsp;&emsp;&emsp;&emsp;var src = id.split("-")[0];<br>
+				&emsp;&emsp;&emsp;&emsp;var dest = id.split("-")[1];<br>
+				&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;var transform = 'rotate(' + angle + 'deg)';<br>
+				&emsp;&emsp;&emsp;var line = jQuery('&lt;div/&gt;', {<br>
+				&emsp;&emsp;&emsp;&emsp;id : id,<br>
+				&emsp;&emsp;&emsp;&emsp;name : linkName,<br>
+				&emsp;&emsp;&emsp;&emsp;src : src,<br>
+				&emsp;&emsp;&emsp;&emsp;dest : dest,<br>
+				&emsp;&emsp;&emsp;&emsp;onmouseover : "Tip('" + linkLabel + "')",<br>
+				&emsp;&emsp;&emsp;&emsp;onMouseOut : "UnTip()",<br>
+				&emsp;&emsp;&emsp;&emsp;class : 'line'<br>
+				&emsp;&emsp;&emsp;}).appendTo('#mapDiv').css({<br>
+				&emsp;&emsp;&emsp;&emsp;'position' : 'absolute',<br>
+				&emsp;&emsp;&emsp;&emsp;'-webkit-transform' : transform,<br>
+				&emsp;&emsp;&emsp;&emsp;'-moz-transform' : transform,<br>
+				&emsp;&emsp;&emsp;&emsp;'transform' : transform,<br>
+				&emsp;&emsp;&emsp;&emsp;'backgroundColor' : color<br>
+				&emsp;&emsp;&emsp;}).width(length).offset({<br>
+				&emsp;&emsp;&emsp;&emsp;left : x1,<br>
+				&emsp;&emsp;&emsp;&emsp;top : y1<br>
+				&emsp;&emsp;&emsp;});<br>
+				&emsp;&emsp;&emsp;return line;<br>
+				&emsp;&emsp;}<br>
+				</p>
+				</td>
+				<td align="left" class="explanationhighlighter" height="400px">
+				<p>
+				This function draws a line between the given two points (x1,y1) and (x2,y2). To draw the line we need to know the length of the line and the angle. 
+				This is calculated in the first two lines of the code.<br>
+				Formula to calculate the distance between two points is <img src="images/distanceFormula.gif" valign="bottom"><br>
+				Angle is calculated using the formula atan2(y2 - y1, x2 - x1) * 180/PI<br>
+				We then dynamically create a div with the linkName as id, 'src' - Source of the line, 'dest' - destination of the line and class 'line'(so that we can select all the lines at one go)
+				We use css3's 2D Transform property 'rotate' to rotate the created div to the calculated angle.<br>
+				This div is appended to the 'mapDiv' div element with 'background-color' set using the color argument.<br>
+				The width of the div is the length of the line calculated in the first line.<br>
+				The origin of the line is (x1,y1)<br>  
+ 				</p> 
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2" align="left">
+				<a name="updateLines"></a>
+				<br><h3>&emsp;* <u>updateLines(dragObj)</u></h3><br>
+				</td>
+				</tr>
+				<tr>
+				<td align="left" height="400px" class="syntaxhighlighter">
+				<p>
+				&emsp;&emsp;function updateLines(dragObj) {<br>
+				&emsp;&emsp;&emsp;var srcList = $("div[src='" + dragObj + "']");<br>
+				&emsp;&emsp;&emsp;var destList = $("div[dest='" + dragObj + "']");<br>
+				&emsp;&emsp;&emsp;var srcLength = srcList.length;<br>
+				&emsp;&emsp;&emsp;var destLength = destList.length;<br>
+				&emsp;&emsp;&emsp;var updateList = new Array();<br>
+				&emsp;&emsp;&emsp;var index = 0;<br>
+				&emsp;&emsp;&emsp;for ( var i = 0; i < srcLength; i++) {<br>
+				&emsp;&emsp;&emsp;&emsp;var id = srcList[i].id;<br>
+				&emsp;&emsp;&emsp;&emsp;if ($("#" + id).attr("src") == dragObj) {<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;if (!updateList.contains($("#" + id).attr("dest"))) {<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updateList[index] = $("#" + id).attr("dest");<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;index++;<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;$("#" + id).remove();<br>
+				&emsp;&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;for ( var i = 0; i < destLength; i++) {<br>
+				&emsp;&emsp;&emsp;&emsp;var id = destList[i].id;<br>
+				&emsp;&emsp;&emsp;&emsp;if ($("#" + id).attr("dest") == dragObj) {<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;if (!updateList.contains($("#" + id).attr("src"))) {<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updateList[index] = $("#" + id).attr("src");<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;index++;<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;$("#" + id).remove();<br>
+				&emsp;&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;updateCanvas($("#" + dragObj), dragObj);<br>
+				&emsp;&emsp;&emsp;for ( var i = 0; i < updateList.length; i++) {<br>
+				&emsp;&emsp;&emsp;&emsp;if (updateList[i] != undefined) {<br>
+				&emsp;&emsp;&emsp;&emsp;&emsp;updateCanvas($("#" + updateList[i]), dragObj);<br>
+				&emsp;&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;}<br>
+				</p>
+				</td>
+				<td height="400px" class="explanationhighlighter">
+				<p>
+				This function is called whenever a symbol is moved(drag and drop) from one position to another. When a symbol is moved the corresponding lines associated
+				with the symbol has to be redrawn.<br>
+				The id of the symbol which is moved is passed as an argument - 'dragObj' - to this function.<br>
+				Using this id the lines are identified. Remember the line has attributes 'src' and 'dest', these attributes will be helpful in redrawing the lines.<br>
+				We get all the lines with 'src' and 'dest' is dragObj<br>
+				We iterate through each list and find the corresponding dest or src of the symbol. Those ids are put in an array.<br>
+				Now we iterate through the array which contains the symbols associated to the symbol that is moved.<br>
+				The id of the associated symbol is passed to the <a href="#updateCanvas">updateCanvas()</a> function which will redraw the lines connecting to the dragObj only.<br> 
+				</p>  
+				</td>
+				</tr>
+				</table>
+				</div>
+		</div>			
+	</div>

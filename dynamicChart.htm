@@ -1,0 +1,79 @@
+<div id="dynamicChart" style="height: 99%;width: 99%;overflow:hidden;">
+<div id="dynamicChartDialog" title="Dynamic Chart">
+	<div id="container" style="width: 80%; height: 50%; margin-top: 20%;margin-left: 10%"></div>
+	<div style="float:right;margin-top:150px">
+		<a href="javascript:viewSource('dynamicChartSource');">View Source</a>
+	</div>
+</div>
+<div id="dynamicChartSource" style="display:none;" title="Dynamic Chart - Source">
+<p class="syntaxhighlighter">
+var chart;<br>
+function drawDynamicChart() {<br>
+&emsp;chart = new Highcharts.Chart({<br>
+&emsp;&emsp;chart : {<br>
+			&emsp;&emsp;&emsp;renderTo : 'container',<br>
+			&emsp;&emsp;&emsp;defaultSeriesType : 'spline',<br>
+			&emsp;&emsp;&emsp;borderWidth : 2,<br>
+			&emsp;&emsp;&emsp;borderColor : '#000',<br>
+			&emsp;&emsp;&emsp;events : {<br>
+				&emsp;&emsp;&emsp;&emsp;load : function() {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;// set up the updating of the chart each second<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;var series = this.series[0];<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;setInterval(function() {<br>
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;var x = (new Date()).getTime(), // current time<br>
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;y = Math.random();<br>
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;series.addPoint([ x, y ], true, true);<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;}, 1000);<br>
+				&emsp;&emsp;&emsp;&emsp;}<br>
+			&emsp;&emsp;&emsp;}<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;title : {<br>
+			&emsp;&emsp;&emsp;text : 'Live random data'<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;xAxis : {<br>
+			&emsp;&emsp;&emsp;type : 'datetime',<br>
+			&emsp;&emsp;&emsp;tickPixelInterval : 150<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;yAxis : {<br>
+			&emsp;&emsp;&emsp;title : {<br>
+				&emsp;&emsp;&emsp;&emsp;text : 'Value'<br>
+			&emsp;&emsp;&emsp;},<br>
+			&emsp;&emsp;&emsp;plotLines : [ {<br>
+				&emsp;&emsp;&emsp;&emsp;value : 0,<br>
+				&emsp;&emsp;&emsp;&emsp;width : 1,<br>
+				&emsp;&emsp;&emsp;&emsp;color : '#808080'<br>
+			&emsp;&emsp;&emsp;} ]<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;tooltip : {<br>
+			&emsp;&emsp;&emsp;formatter : function() {<br>
+				&emsp;&emsp;&emsp;&emsp;return '<b>' + this.series.name + '</b>&lt;br/&gt;'+ Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x)+ '&lt;br/&gt;' + Highcharts.numberFormat(this.y, 2);<br>
+			&emsp;&emsp;&emsp;}<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;legend : {<br>
+			&emsp;&emsp;&emsp;enabled : false<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;credits : {<br>
+			&emsp;&emsp;&emsp;enabled : false<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;exporting : {<br>
+			&emsp;&emsp;&emsp;enabled : false<br>
+		&emsp;&emsp;},<br>
+		&emsp;&emsp;series : [ {<br>
+			&emsp;&emsp;&emsp;name : 'Random data',<br>
+			&emsp;&emsp;&emsp;data : (function() {<br>
+				&emsp;&emsp;&emsp;&emsp;// generate an array of random data<br>
+				&emsp;&emsp;&emsp;&emsp;var data = [], time = (new Date()).getTime(), i;<br>
+				&emsp;&emsp;&emsp;&emsp;for (i = -19; i <= 0; i++) {<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;data.push({<br>
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;x : time + i * 1000,<br>
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;y : Math.random()<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;});<br>
+				&emsp;&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;&emsp;&emsp;return data;<br>
+			&emsp;&emsp;&emsp;})()<br>
+		&emsp;&emsp;} ]<br>
+	&emsp;});<br>
+}<br>
+</p>
+</div>
+</div>

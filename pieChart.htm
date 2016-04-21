@@ -1,0 +1,61 @@
+<div id="pieChart" style="height: 99%;width: 99%;overflow:hidden;">
+<div id="pieChartDialog" title="Pie Chart">
+	<div id="container" style="width: 80%; height: 50%; margin-top: 20%;margin-left: 10%"></div>
+	<div style="float:right;margin-top:150px">
+		<a href="javascript:viewSource('pieChartSource');">View Source</a>
+	</div>
+</div>
+<div id="pieChartSource" style="display:none;" title="Pie Chart - Source">
+<p class="syntaxhighlighter">
+var chart;<br>
+function drawPieChart() {<br>
+&emsp;chart = new Highcharts.Chart({<br>
+&emsp;&emsp;chart : {<br>
+&emsp;&emsp;&emsp;renderTo : 'container',<br>
+&emsp;&emsp;&emsp;borderWidth : 2,<br>
+&emsp;&emsp;&emsp;borderColor : '#000'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;title : {<br>
+&emsp;&emsp;&emsp;text : 'Browser market shares at a specific website, 2010'<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;tooltip : {<br>
+&emsp;&emsp;&emsp;formatter : function() {<br>
+&emsp;&emsp;&emsp;&emsp;return '<b>' + this.point.name + '</b>: ' + this.y + ' %';<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;plotOptions : {<br>
+&emsp;&emsp;&emsp;pie : {<br>
+&emsp;&emsp;&emsp;&emsp;allowPointSelect : true,<br>
+&emsp;&emsp;&emsp;&emsp;cursor : 'pointer',<br>
+&emsp;&emsp;&emsp;&emsp;dataLabels : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;enabled : false,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;color : '#000000',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;connectorColor : '#000000',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;formatter : function() {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return '<b>' + this.point.name + '</b>: ' + this.y + ' %';<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;showInLegend : true<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;credits : {<br>
+&emsp;&emsp;&emsp;enabled : false<br>
+&emsp;&emsp;},<br>
+&emsp;&emsp;series : [{<br>
+&emsp;&emsp;&emsp;type : 'pie',<br>
+&emsp;&emsp;&emsp;name : 'Browser share',<br>
+&emsp;&emsp;&emsp;data : [<br> 
+&emsp;&emsp;&emsp;&emsp;[ 'Firefox', 45.0 ], [ 'IE', 26.8 ], {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;name : 'Chrome',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;y : 12.8,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;sliced : true,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;selected : true<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;[ 'Safari', 8.5 ], [ 'Opera', 6.2 ], [ 'Others', 0.7 ]<br> 
+&emsp;&emsp;&emsp;]<br>
+&emsp;&emsp;}]<br>
+&emsp;});<br>
+}<br>
+</p>
+</div>
+</div>

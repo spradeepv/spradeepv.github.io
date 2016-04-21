@@ -1,0 +1,39 @@
+<html>
+<head>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="js/googleRoutes.js"></script>
+<style>
+#control {
+	background: #fff;
+	padding: 5px;
+	font-size: 14px;
+	font-family: Arial;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+	display: none;
+}
+</style>
+</head>
+<body>
+<div id="googleRoutes" style="height: 99%;width: 99%;overflow:auto;">
+	<div id="googleRoutesDialog" title="Google Map View - Routes">
+		<div id="control">
+			<h4>
+				Source &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input
+					type="text" id="source" value="" />
+			</h4>
+			<h4>
+				Destination : <input type="text" id="dest" value="" />
+			</h4>
+			<input type="button" id="getDirections"
+				onclick="javascript:calcRoute();" value="Get Direction">
+		</div>
+		<div id="rmap" style="width: 100%; height: 100%"></div>
+	</div>
+	
+</div>
+</body>
+<script>
+drawGoogleRoutes();
+</script>
+</html>

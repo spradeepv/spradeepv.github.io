@@ -1,0 +1,81 @@
+<div id="columnChart" style="height: 99%;width: 99%;overflow:hidden;">
+<div id="columnChartDialog" title="Column Chart">
+	<div id="container" style="width: 80%; height: 50%; margin-top: 20%;margin-left: 10%"></div>
+	<div style="float:right;margin-top:150px">
+		<a href="javascript:viewSource('columnChartSource');">View Source</a>
+	</div>
+</div>
+<div id="columnChartSource" style="display:none;" title="Column Chart - Source">
+<p class="syntaxhighlighter">
+&emsp;function drawColumnChart() {<br>
+&emsp;&emsp;chart = new Highcharts.Chart(<br>
+&emsp;&emsp;&emsp;{<br>
+&emsp;&emsp;&emsp;&emsp;chart : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;renderTo : 'container',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;defaultSeriesType : 'column',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;borderWidth : 2,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;borderColor : '#000'<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;title : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;text : 'Monthly Average Rainfal',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;margin : 50<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;subtitle : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;text : 'Source: WorldClimate.com'<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;xAxis : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;categories : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;credits : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;enabled : false<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;yAxis : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;min : 0,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;title : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;text : 'Rainfall (mm)'<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;legend : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;layout : 'vertical',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;backgroundColor : '#FFFFFF',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;align : 'left',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;verticalAlign : 'top',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;x : 100,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;y : 70,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;floating : true,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;shadow : true<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;tooltip : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;formatter : function() {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return '' + this.x + ': ' + this.y + ' mm';<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;plotOptions : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;column : {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;pointPadding : 0.2,<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;borderWidth : 0<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;series : [<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;{<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name : 'Tokyo',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;data : [ 49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 ]<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;{<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name : 'New York',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;data : [ 83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3 ]<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;{<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name : 'London',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;data : [ 48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2 ]<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;},<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;{<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name : 'Berlin',<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;data : [ 42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1 ]<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;}<br> 
+&emsp;&emsp;&emsp;&emsp;]<br>
+&emsp;&emsp;&emsp;});<br>
+&emsp;}<br>
+</p>
+</div>
+</div>
